@@ -1,0 +1,2 @@
+INSERT INTO clientes (id, nombre, apellido, birth_date) values (1, 'Manuel', 'Medina', '1988-12-10');
+INSERT INTO clientes (id, nombre, apellido, birth_date) values (2, 'Amado', 'Medina', '1990-06-16');

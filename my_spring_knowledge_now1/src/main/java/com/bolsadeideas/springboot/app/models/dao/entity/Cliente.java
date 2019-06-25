@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -24,14 +26,17 @@ public class Cliente implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	private String name;
+	@NotEmpty
+	private String nombre;
 
+	@NotEmpty
 	private String apellido;
 
-	@Column(name = "birth_day")
+	@NotNull
+	@Column(name = "birth_date")
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	@Temporal(TemporalType.DATE)
-	private Date date;
+	private Date birthDate;
 
 	public Long getId() {
 		return id;
@@ -39,14 +44,6 @@ public class Cliente implements Serializable {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
 	}
 
 	public String getApellido() {
@@ -57,12 +54,20 @@ public class Cliente implements Serializable {
 		this.apellido = apellido;
 	}
 
-	public Date getDate() {
-		return date;
+	public String getNombre() {
+		return nombre;
 	}
 
-	public void setDate(Date date) {
-		this.date = date;
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public Date getBirthDate() {
+		return birthDate;
+	}
+
+	public void setBirthDate(Date birthDate) {
+		this.birthDate = birthDate;
 	}
 
 	public static long getSerialversionuid() {
